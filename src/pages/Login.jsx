@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import LoginForm from '../components/login/Form';
+import LoginForm from '../components/LoginForm';
 
 // LoginForm 컴포넌트가 가로 세로 가운데에 있게끔 하는 역할
 const Login = () => {

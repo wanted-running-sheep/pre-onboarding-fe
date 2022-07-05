@@ -1,9 +1,9 @@
 import { useState, useRef } from 'react';
 import styled from 'styled-components';
-import Instagram from '../../assets/images/InstagramLogo.svg';
-import { useAuthState } from '../../context/AuthContext';
-import { validationCheck } from '../../util/validation';
-import LoginInput from './Input';
+import Instagram from '../assets/images/InstagramLogo.svg';
+import { useAuthState } from '../context/AuthContext';
+import { validationCheck } from '../util/validation';
+import LoginInput from './LoginInput';
 
 const user = {
   email: 'test@test.com',
@@ -67,15 +67,13 @@ const LoginForm = () => {
           handleInput={handleInput}
           isValidation={validationState.password}
         />
-        <button
+        <LoginButton
           type='submit'
           disabled={!isCheckValidation()}
-          style={{
-            background: isCheckValidation() ? '#0095f6' : '#c0dffd',
-          }}
+          background={isCheckValidation()}
         >
           로그인
-        </button>
+        </LoginButton>
       </form>
     </Container>
   );
@@ -95,13 +93,16 @@ const Container = styled.div`
     width: 65%;
     padding: 25px 0px;
   }
-  button {
-    width: 100%;
-    color: white;
-    font-weight: 600;
-    margin: 10px 0px;
-    padding: 7px 0px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
+`;
+const LoginButton = styled.button`
+  width: 100%;
+  color: white;
+  font-weight: 600;
+  margin: 10px 0px;
+  padding: 7px 0px;
+  border-radius: 5px;
+  cursor: pointer;
+  background: ${(props) => {
+    return props.background ? '#0095f6' : '#c0dffd';
+  }};
 `;

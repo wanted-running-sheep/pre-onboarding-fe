@@ -14,8 +14,7 @@ const AuthContextProvider = ({ children }) => {
 
   const login = () => {
     localStorage.setItem('isLoggedIn', true);
-    const token = localStorage.getItem('isLoggedIn');
-    setIsLoggedIn(token);
+    setIsLoggedIn(true);
   };
 
   const logout = () => {

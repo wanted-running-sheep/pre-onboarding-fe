@@ -17,12 +17,7 @@ const LoginInput = ({
         placeholder={placeholder}
         ref={inputRef}
         onChange={handleInput}
-        style={{
-          border:
-            isValidation || isValidation === null
-              ? '1px solid #dbdbdb'
-              : '1px solid red',
-        }}
+        border={isValidation || isValidation === null}
       />
     </Container>
   );
@@ -43,4 +38,7 @@ const LoginInputContent = styled.input`
   padding: 10px;
   width: 100%;
   border-radius: 3px;
+  border: ${(props) => {
+    return props.border ? '1px solid #dbdbdb' : '1px solid red';
+  }};
 `;
