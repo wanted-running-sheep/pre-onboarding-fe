@@ -14,7 +14,7 @@ const NavigationBar = () => {
     <Container>
       <Content>Logo</Content>
       <Content>
-        <SearchInput type="text" />
+        <SearchInput type="search" />
       </Content>
       <Content>
         <LogoutBtn onClick={handleLogout}>logout</LogoutBtn>

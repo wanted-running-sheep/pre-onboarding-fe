@@ -25,7 +25,7 @@ const Feed = (props) => {
     setCommentText(inputRef.current.value);
   };
 
-  const findLastItem = () => {
+  const getNewId = () => {
     const lastItem = commentList[commentList.length - 1];
     if (lastItem === undefined) return 1;
     return lastItem.id + 1;
@@ -35,7 +35,7 @@ const Feed = (props) => {
     event.preventDefault();
     setCommentList([
       ...commentList,
-      { id: findLastItem(), userName: "superUser", comment: commentText },
+      { id: getNewId(), userName: "superUser", comment: commentText },
     ]);
     setCommentText("");
   };
