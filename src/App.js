@@ -1,8 +1,25 @@
 import React from 'react';
-import PreAssignmentGuide from './pages/PreAssignmentGuide';
+import { Route, Routes, Navigate } from 'react-router-dom';
+import Login from './pages/Login';
+import { useAuthState } from './context/AuthContext';
 
 function App() {
-  return <PreAssignmentGuide />;
+  const { isLoggedIn } = useAuthState();
+
+  return (
+    <Routes>
+      <Route
+        path='/'
+        element={
+          isLoggedIn ? <div>main</div> : <Navigate replace to='/login' />
+        }
+      />
+      <Route
+        path='/login'
+        element={isLoggedIn ? <Navigate replace to='/' /> : <Login />}
+      />
+    </Routes>
+  );
 }
 
 export default App;
