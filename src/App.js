@@ -1,8 +1,8 @@
 import React from 'react';
-import PreAssignmentGuide from './pages/PreAssignmentGuide';
+import Main from './pages/Main';
 
 function App() {
-  return <PreAssignmentGuide />;
+  return <Main/>
 }
 
 export default App;
