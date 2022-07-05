@@ -27,11 +27,8 @@ const Feed = (props) => {
 
   const findLastItem = () => {
     const lastItem = commentList[commentList.length - 1];
-    if (lastItem !== undefined) {
-      return lastItem.id + 1;
-    } else {
-      return 1;
-    }
+    if (lastItem === undefined) return 1;
+    return lastItem.id + 1;
   };
 
   const submitHandler = (event) => {
