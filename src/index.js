@@ -4,15 +4,20 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import GlobalStyles from './styles/globalStyles';
 import { AuthContextProvider } from './context/AuthContext';
+import { QueryClient, QueryClientProvider } from 'react-query';
+
+const queryClient = new QueryClient();
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <GlobalStyles />
-    <BrowserRouter>
-      <AuthContextProvider>
-        <App />
-      </AuthContextProvider>
-    </BrowserRouter>
+    <QueryClientProvider client={queryClient}>
+      <GlobalStyles />
+      <BrowserRouter>
+        <AuthContextProvider>
+          <App />
+        </AuthContextProvider>
+      </BrowserRouter>
+    </QueryClientProvider>
   </React.StrictMode>
 );

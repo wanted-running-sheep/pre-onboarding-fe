@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
 import Login from './pages/Login';
+import Main from './pages/Main';
 import { useAuthState } from './context/AuthContext';
 
 function App() {
@@ -11,7 +12,7 @@ function App() {
       <Route
         path='/'
         element={
-          isLoggedIn ? <div>main</div> : <Navigate replace to='/login' />
+          isLoggedIn ? <Main /> : <Navigate replace to='/login' />
         }
       />
       <Route
