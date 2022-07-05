@@ -1,11 +1,25 @@
 import React, { useRef, useState } from "react";
+import { useEffect } from "react";
 
 import styled from "styled-components";
 
 const Feed = (props) => {
   const [commentText, setCommentText] = useState("");
   const [commentList, setCommentList] = useState(props.comments);
+  const [isLoad, setIsLoad] = useState(true);
   const inputRef = useRef(null);
+
+  useEffect(() => {
+    onLoadHandler();
+  }, []);
+
+  const onLoadHandler = () => {
+    const loadImage = new Image();
+    loadImage.src = props.img;
+    loadImage.onload = () => {
+      setIsLoad(false);
+    };
+  };
 
   const commentInputChangeHandler = () => {
     setCommentText(inputRef.current.value);
@@ -28,6 +42,8 @@ const Feed = (props) => {
     ]);
     setCommentText("");
   };
+
+  if (isLoad) return <></>;
 
   return (
     <Container>
