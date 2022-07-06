@@ -27,8 +27,8 @@ const Container = styled.div`
   align-items: center;
   height: 50px;
   width: 100%;
-  background-color: ${({ theme }) => theme.color.background1};
-  border-bottom: 1px solid ${({ theme }) => theme.color.border};
+  background-color: ${({ theme }) => theme.color.background.white};
+  border-bottom: 1px solid ${({ theme }) => theme.color.border.primary};
   padding: 0 20px;
   position: fixed;
   top: 0;
@@ -54,7 +54,7 @@ const SearchInput = styled.input`
 `;
 
 const LogoutBtn = styled.button`
-  background-color: ${({ theme }) => theme.color.background1};
+  background-color: ${({ theme }) => theme.color.background.white};
   cursor: pointer;
   font-size: 15px;
 `;

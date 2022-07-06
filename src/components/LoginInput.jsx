@@ -33,12 +33,10 @@ const Container = styled.div`
 
 const LoginInputContent = styled.input`
   font-size: 14px;
-  background-color: #fafafa;
+  background-color: ${({ theme }) => theme.color.background.lightGray};
   border: 0;
   padding: 10px;
   width: 100%;
   border-radius: 3px;
-  border: ${(props) => {
-    return props.border ? '1px solid #dbdbdb' : '1px solid red';
-  }};
+  border: 1px solid ${({border, theme}) => border ? theme.color.border.primary : theme.color.border.notValid};
 `;

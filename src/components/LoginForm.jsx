@@ -102,7 +102,7 @@ const LoginButton = styled.button`
   padding: 7px 0px;
   border-radius: 5px;
   cursor: pointer;
-  background: ${(props) => {
-    return props.background ? '#0095f6' : '#c0dffd';
-  }};
+  background: ${({background, theme}) => 
+    background ? theme.color.button.primary : theme.color.button.disabled
+  };
 `;

@@ -5,12 +5,20 @@ const size = {
 
 export const theme = {
   color: {
-    primary: '#0095f6',
-    background1: '#ffffff',
-    background2: '#fafafa',
-    disabled: '#0095f64d',
-    border: '#e3e3e3',
+    background: {
+      white: '#ffffff',
+      lightGray: '#fafafa'
+    },
+    border: {
+      primary: 'lightgray',
+      notValid: 'red'
+    },
+    button: {
+      primary: '#0095f6',
+      disabled: '#c0dffd'
+    },
   },
+  
   deviceSize: {
     max: {
       mobile: `(max-width : ${size.mobile})`,
