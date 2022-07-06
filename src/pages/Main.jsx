@@ -6,7 +6,6 @@ import { useFeed } from "../hooks/useFeed";
 
 const Main = () => {
   const { data } = useFeed();
-  console.log(data);
   return (
     <Container>
       <NavigationBar />
@@ -26,7 +25,7 @@ const Main = () => {
 };
 
 const Container = styled.div`
-  background-color: ${({ theme }) => theme.color.background2};
+  background-color: ${({ theme }) => theme.color.background.lightGray};
 `;
 
 const FeedWrapper = styled.div`

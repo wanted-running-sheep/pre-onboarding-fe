@@ -174,12 +174,12 @@ const UserComment = styled.span``;
 const AddComment = styled.div`
   display: flex;
   justify-content: space-between;
-  border-top: 1px solid ${({ theme }) => theme.color.border};
+  border-top: 1px solid ${({ theme }) => theme.color.border.primary};
   padding: 10px;
 `;
 
 const CommentInput = styled.input`
-  background-color: ${({ theme }) => theme.color.background2};
+  background-color: ${({ theme }) => theme.color.background.lightGray};
   width: 100%;
   height: 30px;
   border: none;
@@ -187,9 +187,9 @@ const CommentInput = styled.input`
 
 const CommentButton = styled.button`
   flex-shrink: 0;
-  background-color: ${({ theme }) => theme.color.background2};
+  background-color: ${({ theme }) => theme.color.background.lightGray};
   color: ${({ enable, theme }) =>
-    enable ? theme.color.primary : theme.color.disabled};
+    enable ? theme.color.button.primary : theme.color.button.disabled};
   cursor: ${({ enable }) => (enable ? "pointer" : "default")};
 `;
 
