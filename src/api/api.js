@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const URL = axios.create({
+export const request = axios.create({
   baseURL: '/data',
   headers: {},
 });

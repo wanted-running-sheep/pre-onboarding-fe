@@ -6,7 +6,7 @@ import { FaEllipsisH } from 'react-icons/fa';
 const Feed = (props) => {
   const [commentText, setCommentText] = useState('');
   const [commentList, setCommentList] = useState(props.comments);
-  const [isLoad, setIsLoad] = useState(true);
+  const [isLoading, setisLoading] = useState(true);
   const [enabledButton, setEnabledButton] = useState(false);
   const inputRef = useRef(null);
   const buttonRef = useRef(null);
@@ -20,7 +20,7 @@ const Feed = (props) => {
     const loadImage = new Image();
     loadImage.src = props.img;
     loadImage.onload = () => {
-      setIsLoad(false);
+      setisLoading(false);
     };
   };
 
@@ -58,7 +58,7 @@ const Feed = (props) => {
     }
   };
 
-  if (isLoad) return <></>;
+  if (isLoading) return <></>;
 
   return (
     <Container>

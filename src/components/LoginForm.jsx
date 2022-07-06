@@ -29,7 +29,7 @@ const LoginForm = () => {
       [name]: validationCheck(name, value),
     }));
   };
-  const isCheckAccount = () => {
+  const checkVerify = () => {
     return (
       emailRef.current.value === user.email &&
       pwRef.current.value === user.password
@@ -38,13 +38,10 @@ const LoginForm = () => {
   const isCheckValidation = () => {
     return validationState.email && validationState.password;
   };
-  const onSubmit = (e) => {
-    e.preventDefault();
-    if (isCheckAccount()) {
-      login();
-      return;
-    }
-    alert(ERROR_CHECK_ACCOUNT);
+  const onSubmit = (event) => {
+    event.preventDefault();
+    if (!checkVerify()) alert(ERROR_CHECK_ACCOUNT);
+    login();
   };
 
   return (

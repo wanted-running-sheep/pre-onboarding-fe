@@ -1,8 +1,8 @@
-import { URL } from '../api/api';
+import { request } from '../api/api';
 import { useQuery } from 'react-query';
 
 const fetchFeedData = async () => {
-  const { data } = await URL.get('/feed.json');
+  const { data } = await request.get('/feed.json');
   return data;
 };
 
