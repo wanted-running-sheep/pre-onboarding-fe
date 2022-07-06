@@ -2,16 +2,20 @@ import React, { useRef, useState } from "react";
 import { useEffect } from "react";
 
 import styled from "styled-components";
+import { FaEllipsisH } from "react-icons/fa";
 
 const Feed = (props) => {
   const [commentText, setCommentText] = useState("");
   const [commentList, setCommentList] = useState(props.comments);
   const [isLoad, setIsLoad] = useState(true);
+  const [enabledButton, setEnabledButton] = useState(false);
   const inputRef = useRef(null);
+  const buttonRef = useRef(null);
 
   useEffect(() => {
     onLoadHandler();
-  }, []);
+    handleEnableButton();
+  }, [enabledButton, commentText]);
 
   const onLoadHandler = () => {
     const loadImage = new Image();
@@ -31,13 +35,28 @@ const Feed = (props) => {
     return lastItem.id + 1;
   };
 
+  const handleEnableButton = () => {
+    if (buttonRef.current !== null) {
+      if (commentText !== "") {
+        setEnabledButton(true);
+        buttonRef.current.disabled = false;
+      } else {
+        setEnabledButton(false);
+        buttonRef.current.disabled = true;
+      }
+    }
+  };
+
   const submitHandler = (event) => {
     event.preventDefault();
-    setCommentList([
-      ...commentList,
-      { id: getNewId(), userName: "superUser", comment: commentText },
-    ]);
-    setCommentText("");
+
+    if (commentText !== "") {
+      setCommentList([
+        ...commentList,
+        { id: getNewId(), userName: "superUser", comment: commentText },
+      ]);
+      setCommentText("");
+    }
   };
 
   if (isLoad) return <></>;
@@ -47,11 +66,11 @@ const Feed = (props) => {
       <FeedHead>
         <ProfileWrap>
           <ProfileCircle></ProfileCircle>
-          <span>{props.userName}</span>
+          <ProfileUserName>{props.userName}</ProfileUserName>
         </ProfileWrap>
-        <div>
-          <button></button>
-        </div>
+        <ProfileMenu>
+          <FaEllipsisH />
+        </ProfileMenu>
       </FeedHead>
       <FeedImage>
         <img alt="이미지" src={props.img} />
@@ -73,8 +92,11 @@ const Feed = (props) => {
               ref={inputRef}
               onChange={commentInputChangeHandler}
               value={commentText}
+              placeholder="댓글달기"
             />
-            <CommentButton>게시</CommentButton>
+            <CommentButton ref={buttonRef} enable={enabledButton}>
+              게시
+            </CommentButton>
           </AddComment>
         </form>
       </FeedComment>
@@ -84,15 +106,19 @@ const Feed = (props) => {
 
 const Container = styled.div`
   border: 1px solid #ddd;
-  width: 500px;
+  max-width: 500px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
+  border-radius: 6px;
+  margin-bottom: 20px;
 `;
 
 const FeedHead = styled.div`
   display: flex;
   justify-content: space-between;
+  padding: 10px;
 `;
 
 const ProfileCircle = styled.div`
@@ -101,6 +127,15 @@ const ProfileCircle = styled.div`
   border-radius: 50%;
   background-color: aqua;
   margin-right: 10px;
+`;
+
+const ProfileUserName = styled.span`
+  font-weight: bold;
+`;
+
+const ProfileMenu = styled.div`
+  display: flex;
+  align-items: center;
 `;
 
 const ProfileWrap = styled.div`
@@ -118,12 +153,15 @@ const FeedImage = styled.div`
 
 const FeedComment = styled.div``;
 
-const CommentList = styled.div``;
+const CommentList = styled.div`
+  padding: 10px;
+`;
 
 const CommentUl = styled.ul``;
 const CommentLi = styled.li`
   display: flex;
   align-items: center;
+  padding-bottom: 6px;
 `;
 
 const UserName = styled.span`
@@ -136,15 +174,23 @@ const UserComment = styled.span``;
 const AddComment = styled.div`
   display: flex;
   justify-content: space-between;
+  border-top: 1px solid ${({ theme }) => theme.color.border};
+  padding: 10px;
 `;
 
 const CommentInput = styled.input`
-  border: 1px solid grey;
+  background-color: ${({ theme }) => theme.color.background2};
   width: 100%;
+  height: 30px;
+  border: none;
 `;
 
 const CommentButton = styled.button`
   flex-shrink: 0;
+  background-color: ${({ theme }) => theme.color.background2};
+  color: ${({ enable, theme }) =>
+    enable ? theme.color.primary : theme.color.disabled};
+  cursor: ${({ enable }) => (enable ? "pointer" : "default")};
 `;
 
 export default Feed;

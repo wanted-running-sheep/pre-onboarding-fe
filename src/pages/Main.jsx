@@ -8,7 +8,7 @@ const Main = () => {
   const { data } = useFeed();
   console.log(data);
   return (
-    <div>
+    <Container>
       <NavigationBar />
       <FeedWrapper>
         {data?.map((item) => (
@@ -21,12 +21,16 @@ const Main = () => {
           />
         ))}
       </FeedWrapper>
-    </div>
+    </Container>
   );
 };
 
+const Container = styled.div`
+  background-color: ${({ theme }) => theme.color.background2};
+`;
+
 const FeedWrapper = styled.div`
-  margin-top: 70px;
+  padding-top: 70px;
 `;
 
 export default Main;
