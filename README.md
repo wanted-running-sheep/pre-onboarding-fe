@@ -89,7 +89,7 @@
 | [ 양아름 ](https://github.com/areumsheep)  | 초기 세팅, LoginPage UI 및 로직 구현, 문서 작성                |
 | [ 최창열 ](https://github.com/pinkdumbbel) | LoginPage UI 및 로직 구현, 컴포넌트 분리, AuthContext API 구현 |
 | [ 최중재 ](https://github.com/joong8812)   | MainPage UI 및 로직 구현                                       |
-| [ 이주현 ](https://github.com/mael1657)    | MainPage UI 및 로직 구현                                       |
+| [ 이주현 ](https://github.com/mael1657)    | MainPage UI 및 로직 구현, react-query 비동기 통신 로직 구현         |
 | [ 조현호 ](https://github.com/hajun2)      | MainPage UI 및 로직 구현                                       |
 <br />
 
