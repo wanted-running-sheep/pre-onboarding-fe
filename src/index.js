@@ -5,6 +5,8 @@ import App from './App';
 import GlobalStyles from './styles/globalStyles';
 import { AuthContextProvider } from './context/AuthContext';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import { theme } from './styles/theme';
+import { ThemeProvider } from 'styled-components';
 
 const queryClient = new QueryClient();
 
@@ -15,7 +17,9 @@ root.render(
       <GlobalStyles />
       <BrowserRouter>
         <AuthContextProvider>
-          <App />
+          <ThemeProvider theme={theme}>
+            <App />
+          </ThemeProvider>
         </AuthContextProvider>
       </BrowserRouter>
     </QueryClientProvider>
