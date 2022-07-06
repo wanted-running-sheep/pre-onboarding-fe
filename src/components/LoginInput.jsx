@@ -38,5 +38,7 @@ const LoginInputContent = styled.input`
   padding: 10px;
   width: 100%;
   border-radius: 3px;
-  border: 1px solid ${({border, theme}) => border ? theme.color.border.primary : theme.color.border.notValid};
+  border: 1px solid
+    ${({ border, theme }) =>
+      border ? theme.color.border.primary : theme.color.border.notValid};
 `;

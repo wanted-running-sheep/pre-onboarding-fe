@@ -16,7 +16,7 @@ const Wrapper = styled.div`
   width: 100vw;
   height: 100vh;
   display: flex;
-  background-color: ${({theme}) => theme.color.background.lightGray};
+  background-color: ${({ theme }) => theme.color.background.lightGray};
   align-items: center;
   justify-content: center;
 `;

@@ -7,18 +7,18 @@ export const theme = {
   color: {
     background: {
       white: '#ffffff',
-      lightGray: '#fafafa'
+      lightGray: '#fafafa',
     },
     border: {
       primary: 'lightgray',
-      notValid: 'red'
+      notValid: 'red',
     },
     button: {
       primary: '#0095f6',
-      disabled: '#c0dffd'
+      disabled: '#c0dffd',
     },
   },
-  
+
   deviceSize: {
     max: {
       mobile: `(max-width : ${size.mobile})`,

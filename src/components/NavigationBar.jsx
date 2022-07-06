@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import Instagram from "../assets/images/InstagramLogo.svg";
-import { useAuthState } from "../context/AuthContext";
+import React from 'react';
+import styled from 'styled-components';
+import Instagram from '../assets/images/InstagramLogo.svg';
+import { useAuthState } from '../context/AuthContext';
 
 const NavigationBar = () => {
   const { logout } = useAuthState();

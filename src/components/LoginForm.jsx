@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
 import Instagram from '../assets/images/InstagramLogo.svg';
 import { useAuthState } from '../context/AuthContext';
@@ -49,26 +49,26 @@ const LoginForm = () => {
 
   return (
     <Container>
-      <img src={Instagram} alt='인스타그램 로고' />
+      <img src={Instagram} alt="인스타그램 로고" />
       <form onSubmit={onSubmit}>
         <LoginInput
-          name='email'
-          type='email'
-          placeholder='이메일'
+          name="email"
+          type="email"
+          placeholder="이메일"
           inputRef={emailRef}
           handleInput={handleInput}
           isValidation={validationState.email}
         />
         <LoginInput
-          name='password'
-          type='password'
-          placeholder='비밀번호'
+          name="password"
+          type="password"
+          placeholder="비밀번호"
           inputRef={pwRef}
           handleInput={handleInput}
           isValidation={validationState.password}
         />
         <LoginButton
-          type='submit'
+          type="submit"
           disabled={!isCheckValidation()}
           background={isCheckValidation()}
         >
@@ -102,7 +102,6 @@ const LoginButton = styled.button`
   padding: 7px 0px;
   border-radius: 5px;
   cursor: pointer;
-  background: ${({background, theme}) => 
-    background ? theme.color.button.primary : theme.color.button.disabled
-  };
+  background: ${({ background, theme }) =>
+    background ? theme.color.button.primary : theme.color.button.disabled};
 `;

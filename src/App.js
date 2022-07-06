@@ -10,14 +10,12 @@ function App() {
   return (
     <Routes>
       <Route
-        path='/'
-        element={
-          isLoggedIn ? <Main /> : <Navigate replace to='/login' />
-        }
+        path="/"
+        element={isLoggedIn ? <Main /> : <Navigate replace to="/login" />}
       />
       <Route
-        path='/login'
-        element={isLoggedIn ? <Navigate replace to='/' /> : <Login />}
+        path="/login"
+        element={isLoggedIn ? <Navigate replace to="/" /> : <Login />}
       />
     </Routes>
   );

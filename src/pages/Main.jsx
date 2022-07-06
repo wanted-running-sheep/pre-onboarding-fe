@@ -1,8 +1,8 @@
-import React from "react";
-import NavigationBar from "../components/NavigationBar";
-import Feed from "../components/Feed";
-import styled from "styled-components";
-import { useFeed } from "../hooks/useFeed";
+import React from 'react';
+import NavigationBar from '../components/NavigationBar';
+import Feed from '../components/Feed';
+import styled from 'styled-components';
+import { useFeed } from '../hooks/useFeed';
 
 const Main = () => {
   const { data } = useFeed();

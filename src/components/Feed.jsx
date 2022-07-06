@@ -1,11 +1,10 @@
-import React, { useRef, useState } from "react";
-import { useEffect } from "react";
+import React, { useRef, useState, useEffect } from 'react';
 
-import styled from "styled-components";
-import { FaEllipsisH } from "react-icons/fa";
+import styled from 'styled-components';
+import { FaEllipsisH } from 'react-icons/fa';
 
 const Feed = (props) => {
-  const [commentText, setCommentText] = useState("");
+  const [commentText, setCommentText] = useState('');
   const [commentList, setCommentList] = useState(props.comments);
   const [isLoad, setIsLoad] = useState(true);
   const [enabledButton, setEnabledButton] = useState(false);
@@ -37,7 +36,7 @@ const Feed = (props) => {
 
   const handleEnableButton = () => {
     if (buttonRef.current !== null) {
-      if (commentText !== "") {
+      if (commentText !== '') {
         setEnabledButton(true);
         buttonRef.current.disabled = false;
       } else {
@@ -50,12 +49,12 @@ const Feed = (props) => {
   const submitHandler = (event) => {
     event.preventDefault();
 
-    if (commentText !== "") {
+    if (commentText !== '') {
       setCommentList([
         ...commentList,
-        { id: getNewId(), userName: "superUser", comment: commentText },
+        { id: getNewId(), userName: 'superUser', comment: commentText },
       ]);
-      setCommentText("");
+      setCommentText('');
     }
   };
 
@@ -190,7 +189,7 @@ const CommentButton = styled.button`
   background-color: ${({ theme }) => theme.color.background.lightGray};
   color: ${({ enable, theme }) =>
     enable ? theme.color.button.primary : theme.color.button.disabled};
-  cursor: ${({ enable }) => (enable ? "pointer" : "default")};
+  cursor: ${({ enable }) => (enable ? 'pointer' : 'default')};
 `;
 
 export default Feed;
